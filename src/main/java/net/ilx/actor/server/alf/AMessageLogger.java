@@ -14,7 +14,7 @@ public interface AMessageLogger {
 
 		@LogMessage(level=Level.ERROR)
 		@Message(value="Unexpected error occured")
-		void error(@Cause Throwable cause);
+		void unexpectedError(@Cause Throwable cause);
 
 
 		@LogMessage(level=Level.INFO)

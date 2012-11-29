@@ -7,8 +7,11 @@ import java.util.concurrent.Executors;
 import net.ilx.actor.server.ActorServer.Greeter;
 
 import org.jboss.logging.Logger;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Scope;
 
 import fi.jumi.actors.ActorRef;
 import fi.jumi.actors.ActorThread;
@@ -19,6 +22,7 @@ import fi.jumi.actors.listeners.CrashEarlyFailureHandler;
 import fi.jumi.actors.listeners.NullMessageListener;
 
 @Configuration("AlfConfiguration")
+@Import(SshConfiguration.class)
 public class AServerConfiguration {
 
 	private static final Logger LOG = Logger.getLogger(AServerConfiguration.class);
@@ -30,7 +34,8 @@ public class AServerConfiguration {
 	    return actorsThreadPool;
 	}
 
-	@Bean(name="actorThread")
+	@Bean(name="actorThread" )
+	@Scope(value=ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 	public ActorThread actorThread() {
 		LOG.debug("creating actor thread");
 		// Configure the actors implementation and its dependencies:
@@ -52,19 +57,31 @@ public class AServerConfiguration {
 	}
 
 	@Bean(name="greeter")
+	@Scope(value=ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 	public ActorRef<Greeter> getGreeter() {
 		LOG.debug("creating greeter");
-		ActorThread actorThread = actorThread();
+		final ActorThread actorThread = actorThread();
         // Create an actor to be executed in this actor thread. Some guidelines:
         // - Never pass around a direct reference to an actor, but always use ActorRef
         // - To avoid confusion, also avoid passing around the proxy returned by ActorRef.tell(),
         // though that may sometimes be warranted when interacting with actor-unaware code
         // or if you wish to avoid the dependency to ActorRef
         ActorRef<Greeter> helloGreeter = actorThread.bindActor(Greeter.class, new Greeter() {
+
             @Override
             public void sayGreeting(final String name) {
+            	try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+					LOG.error("thread interrupted!", e);
+				}
                 System.out.println("Hello " + name + " from " + Thread.currentThread().getName());
             }
+
+			@Override
+			public void stop() {
+				actorThread.stop();
+			}
         });
         return helloGreeter;
 

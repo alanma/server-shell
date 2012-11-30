@@ -14,7 +14,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class ActorServer {
 
 	private static final AMessageLogger LOG = Logger.getMessageLogger(AMessageLogger.class, ActorServer.class.getPackage().getName());
-	// ILI: private static final Logger LOG = Logger.getLogger(AlfClient.class);
 	private static final AMessages MESSAGES = AMessages.MESSAGES;
 
 	private static AnnotationConfigApplicationContext ctx = null;

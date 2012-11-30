@@ -1,17 +1,15 @@
 package net.ilx.actor.server.alf.spring.conf;
 
-
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import net.ilx.actor.server.alf.actors.Greeter;
-import net.ilx.actor.server.alf.spring.components.AApplication;
+import net.ilx.actor.server.alf.actors.impl.GreeterImpl;
 
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Scope;
 
 import fi.jumi.actors.ActorRef;
@@ -22,16 +20,10 @@ import fi.jumi.actors.eventizers.dynamic.DynamicEventizerProvider;
 import fi.jumi.actors.listeners.CrashEarlyFailureHandler;
 import fi.jumi.actors.listeners.NullMessageListener;
 
-@Configuration("AlfConfiguration")
-@Import(SshConfiguration.class)
-public class AServerConfiguration {
+@Configuration("ActorConfiguration")
+public class ActorConfiguration {
 
-	private static final Logger LOG = Logger.getLogger(AServerConfiguration.class);
-
-	@Bean
-	public AApplication application() {
-		return new AApplication();
-	}
+	private static final Logger LOG = Logger.getLogger(ActorConfiguration.class);
 
 	@Bean
 	public ExecutorService actorsThreadPool() {
@@ -62,6 +54,12 @@ public class AServerConfiguration {
         return actorThread;
 	}
 
+	@Bean
+	@Scope(value=ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+	public Greeter defaultGreeter() {
+		return new GreeterImpl();
+	}
+
 	@Bean(name="greeter")
 	@Scope(value=ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 	public ActorRef<Greeter> getGreeter() {
@@ -72,24 +70,10 @@ public class AServerConfiguration {
         // - To avoid confusion, also avoid passing around the proxy returned by ActorRef.tell(),
         // though that may sometimes be warranted when interacting with actor-unaware code
         // or if you wish to avoid the dependency to ActorRef
-        ActorRef<Greeter> helloGreeter = actorThread.bindActor(Greeter.class, new Greeter() {
-
-            @Override
-            public void sayGreeting(final String name) {
-            	try {
-					Thread.sleep(2000);
-				} catch (InterruptedException e) {
-					LOG.error("thread interrupted!", e);
-				}
-                System.out.println("Hello " + name + " from " + Thread.currentThread().getName());
-            }
-
-			@Override
-			public void stop() {
-				actorThread.stop();
-			}
-        });
+        ActorRef<Greeter> helloGreeter = actorThread.bindActor(Greeter.class, defaultGreeter());
+        LOG.debug("created greeter");
         return helloGreeter;
 
 	}
+
 }

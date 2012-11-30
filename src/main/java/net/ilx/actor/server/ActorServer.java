@@ -3,7 +3,7 @@ package net.ilx.actor.server;
 import net.ilx.actor.server.alf.log.AMessageLogger;
 import net.ilx.actor.server.alf.log.AMessages;
 import net.ilx.actor.server.alf.spring.components.AApplication;
-import net.ilx.actor.server.alf.spring.conf.AServerConfiguration;
+import net.ilx.actor.server.alf.spring.conf.ActorServerConfiguration;
 import net.ilx.actor.server.alf.spring.conf.SshConfiguration;
 
 import org.jboss.logging.Logger;
@@ -52,7 +52,7 @@ public class ActorServer {
 	private static void startSpring() {
 		LOG.info(MESSAGES.starting("spring context"));
 		ctx = new AnnotationConfigApplicationContext();
-		ctx.register(AServerConfiguration.class);
+		ctx.register(ActorServerConfiguration.class);
 		ctx.register(SshConfiguration.class);
 		ctx.refresh();
 

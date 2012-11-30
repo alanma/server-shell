@@ -1,4 +1,4 @@
-package net.ilx.actor.server.alf;
+package net.ilx.actor.server.alf.log;
 
 import org.jboss.logging.Logger.Level;
 import org.jboss.logging.Messages;

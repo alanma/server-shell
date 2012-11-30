@@ -1,4 +1,4 @@
-package net.ilx.actor.server.alf;
+package net.ilx.actor.server.alf.log;
 
 import org.jboss.logging.Logger;
 import org.jboss.logging.Logger.Level;
@@ -20,4 +20,8 @@ public interface AMessageLogger {
 		@LogMessage(level=Level.INFO)
 		@Message(value="{0}", format = Format.MESSAGE_FORMAT)
 		void info(String msg);
+
+		@LogMessage(level=Level.TRACE)
+		@Message(value="{0}", format = Format.MESSAGE_FORMAT)
+		void trace(String msg);
 }

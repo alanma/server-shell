@@ -1,10 +1,11 @@
-package net.ilx.actor.server.alf.spring;
+package net.ilx.actor.server.alf.spring.conf;
 
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import net.ilx.actor.server.ActorServer.Greeter;
+import net.ilx.actor.server.alf.actors.Greeter;
+import net.ilx.actor.server.alf.spring.components.AApplication;
 
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -26,6 +27,11 @@ import fi.jumi.actors.listeners.NullMessageListener;
 public class AServerConfiguration {
 
 	private static final Logger LOG = Logger.getLogger(AServerConfiguration.class);
+
+	@Bean
+	public AApplication application() {
+		return new AApplication();
+	}
 
 	@Bean
 	public ExecutorService actorsThreadPool() {

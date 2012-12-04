@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.ilx.actor.server.alf.log.AMessages;
-import net.ilx.actor.server.alf.spring.components.commands.DispatcherCommand;
+import net.ilx.actor.server.alf.spring.components.commands.SshCommandDispatcher;
 import net.ilx.actor.server.alf.sshd.echo.EchoShellFactory;
 
 import org.apache.sshd.SshServer;
@@ -19,8 +19,10 @@ import org.apache.sshd.server.command.ScpCommandFactory;
 import org.apache.sshd.server.keyprovider.SimpleGeneratorHostKeyProvider;
 import org.apache.sshd.server.shell.ProcessShellFactory;
 import org.jboss.logging.Logger;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 
 @Configuration
@@ -81,7 +83,7 @@ public class SshConfiguration {
 		CommandFactory commandFactory = new CommandFactory( ) {
 			@Override
 			public Command createCommand(final String command) {
-				Command cmd = new DispatcherCommand();
+				Command cmd = dispatcherCommand();
 				return cmd;
 			}
 		};
@@ -94,5 +96,11 @@ public class SshConfiguration {
 		ScpCommandFactory scpCommandFactory = new ScpCommandFactory(customCommandFactory());
 
 		return scpCommandFactory;
+	}
+
+	@Bean
+	@Scope(value=ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+	public SshCommandDispatcher dispatcherCommand() {
+		return new SshCommandDispatcher();
 	}
 }

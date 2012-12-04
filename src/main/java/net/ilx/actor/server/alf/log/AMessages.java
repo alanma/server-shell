@@ -23,7 +23,7 @@ public interface AMessages {
 
 
 	@LogMessage(level = Level.FATAL)
-	@Message(id=500, value="Unexpected error occured.")
+	@Message(id=500, value="Unexpected error occured. ")
 	public String unexpectedException(@Cause Throwable cause);
 
 

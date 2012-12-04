@@ -5,6 +5,7 @@ import java.util.concurrent.Executors;
 
 import net.ilx.actor.server.alf.actors.Greeter;
 import net.ilx.actor.server.alf.actors.impl.GreeterImpl;
+import net.ilx.actor.server.alf.spring.components.commands.EnableCommands;
 
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -21,6 +22,7 @@ import fi.jumi.actors.listeners.CrashEarlyFailureHandler;
 import fi.jumi.actors.listeners.NullMessageListener;
 
 @Configuration("ActorConfiguration")
+@EnableCommands
 public class ActorConfiguration {
 
 	private static final Logger LOG = Logger.getLogger(ActorConfiguration.class);

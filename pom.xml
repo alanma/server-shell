@@ -44,6 +44,17 @@
 		</developer>
 	</developers>
 
+	<repositories>
+		<repository>
+			<id>springsource-libs-release</id>
+			<name>SpringSource libs-release maven repository</name>
+			<url>https://repo.springsource.org/libs-release</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+	</repositories>
+
 	<!-- | Project dependecies -->
 	<dependencies>
 
@@ -403,13 +414,14 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-                <!-- Must be at least version 2.2 with a target of 1.6 to generate the source files in
-                     target/generated-sources -->
+				<!-- Must be at least version 2.2 with a target of 1.6 to generate the
+					source files in target/generated-sources -->
 				<version>2.3.2</version>
 				<configuration>
 					<source>1.6</source>
 					<target>1.6</target>
 					<showWarnings>true</showWarnings>
+					<compilerArgument>-proc:none</compilerArgument>
 				</configuration>
 			</plugin>
 
@@ -625,7 +637,7 @@
 				<artifactId>maven-processor-plugin</artifactId>
 				<version>2.1.0</version>
 				<executions>
-                        <!-- Run annotation processors on src/main/java sources -->
+					<!-- Run annotation processors on src/main/java sources -->
 					<execution>
 						<id>process</id>
 						<goals>
@@ -638,7 +650,7 @@
 <!-- 							</processors> -->
 <!-- 						</configuration> -->
 					</execution>
-                        <!-- Run annotation processors on src/test/java sources -->
+					<!-- Run annotation processors on src/test/java sources -->
 					<execution>
 						<id>process-test</id>
 						<goals>

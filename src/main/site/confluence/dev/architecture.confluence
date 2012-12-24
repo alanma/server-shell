@@ -1,0 +1,11 @@
+
+h1. Basic structure
+
+
+src/main/java:
+
+{code}
+
+{code}
+
+Code is organized in packages:

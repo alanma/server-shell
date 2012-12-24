@@ -1,0 +1,72 @@
+
+h1. Basic usage
+
+Project contains bin/ directory with scripts that are used to start/stop daemon.
+
+h2. Starting daemon
+
+* start daemon
+
+
+* check status
+
+
+h2. Stopping ALF
+
+* stop daemon
+
+* check status
+
+
+h2. other commands
+
+
+h1. Troubleshooting
+
+
+h2. hello.sh fails #1
+
+the hello.sh file contains ^M characters - it has been edited on windows, but you're running it on unix - please open the file and replace ^M with nothing (in vi execute command : %s/^M// )
+You can produce ^M character (this is ONE character, not TWO characters) by pressing Ctrl-V and after it you press Enter.
+
+h2. hello.sh fails #2 - SSH - DSA host key for [localhost]:9797 has changed and you have requested strict checking
+
+
+
+h1. Interactive usage
+
+You can connect to the running daemon using SSH.
+SSH is enabled by default on port 9797 (you can change it in hello.properties). See Configuration.
+
+{code}
+> ssh localhost -p 9797 test
+help
+Available commands are:
+        exit
+        hello
+        help
+exit
+{code}
+
+
+TIP: If you have readline installed on your system you can wrap ssh with rlwrap and benefit from command history (up/down keys will work, you will get basic history, etc.):
+
+
+{code}
+> rlwrap ssh localhost -p 9797 test
+help
+Available commands are:
+        exit
+        hello
+        help
+
+exit
+{code}
+
+
+h1. Scripting
+
+There is a sample script 'hello.sh' in the bin/ directory.
+
+The hello.sh script executes 'alf parse' command and is ment to be used by external programs.
+You can write similar scripts in order to automate some tasks.

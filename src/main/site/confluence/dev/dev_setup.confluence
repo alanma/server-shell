@@ -1,0 +1,17 @@
+
+h1. Eclipse setup
+
+
+h2. XML
+
+XML catalog configuration can be found in support/eclipse/xml directory (file xmlcatalog.xml).
+Import  (File -> Import -> XML -> XML catalog) XML catalog file (xmlcatalog.xml).
+
+
+h2. Eclipse preference
+
+   * formatting:
+   *
+
+
+

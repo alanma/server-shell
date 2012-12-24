@@ -1,0 +1,44 @@
+
+h1. SSH configuration
+
+Following command will produce a file called mycert.pem which will contain both the private key and the public certificate based on it. The certificate will be valid for 1095=3*365 days, and the key (thanks to the -nodes option) is unencrypted:
+
+
+{code}
+openssl req -x509 -nodes -days 1095 -newkey rsa:1024 -keyout hostkey.pem
+{code}
+
+
+You can use generated file as a hostkey file.
+Open alf.properties file and adjust sshd.hostkey property:
+
+
+{code}
+sshd.hostkey=hostkey.pem
+{code}
+
+
+If you want public certificate to be placed in the same file you can generate .pem file like this:
+
+{code}
+openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
+{code}
+
+
+If ssh complains that you already have host key in known_hosts file disable strict host key check in your ~/.ssh/config or delete coresponding key in ~/.ssh/known_hosts:
+
+{code}
+Host localhost
+   StrictHostKeyChecking no
+   UserKnownHostsFile=/dev/null
+{code}
+
+
+
+
+h1. How to see key fingerprint
+
+
+{code}
+ssh-keygen -l -f /etc/ssh/ssh_host_rsa_key
+{code}

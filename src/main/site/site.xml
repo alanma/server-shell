@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/DECORATION/1.3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/DECORATION/1.3.0 http://maven.apache.org/xsd/decoration-1.3.0.xsd " name="ALF (Async Lynx Feeder)">
+	<bannerLeft>
+		<name>ALF</name>
+		<src>img/alf_small.JPG</src>
+		<href>http://repo/maven2/</href>
+	</bannerLeft>
+
+	<skin>
+        <groupId>org.apache.maven.skins</groupId>
+        <artifactId>maven-fluido-skin</artifactId>
+        <version>1.3.0</version>
+    </skin>
+    <custom>
+        <fluidoSkin>
+            <sideBarEnabled>true</sideBarEnabled>
+        </fluidoSkin>
+    </custom>
+
+	<body>
+		<links>
+			<item href="http://maven.apache.org/doxia/faq.html" name="Doxia FAQ" />
+		</links>
+
+		<menu name="Regular Web Site">
+			<item name="Main" href="index.html" />
+			<item name="End user documentation" href="user/index.html">
+				<description>End user documentation</description>
+				<item name="Installation" href="user/installation.html" />
+				<item name="Structure" href="user/structure.html" />
+				<item name="Usage" href="user/usage.html" />
+			</item>
+
+			<item title="Developer documentation" name="Developer documentation" href="dev/index.html">
+				<description>Developer documentation</description>
+				<item name="Project setup" href="dev/dev_setup.html" />
+				<item name="Basic architecture" href="dev/architecture.html" />
+				<item name="Running application and tests" href="dev/running.html" />
+			</item>
+
+		</menu>
+
+		<menu ref="reports" />
+
+		<footer></footer>
+	</body>
+
+	<poweredBy></poweredBy>
+
+
+</project>

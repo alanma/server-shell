@@ -1,0 +1,14 @@
+
+h1. Build project
+
+Invoke:
+{code}
+mvn clean package site:site
+{code}
+
+IMPORTANT: this will NOT install artifacts to the company repository, nor to your local maven repository. If you wish to install artifacts to your LOCAL maven repository execute
+{code}
+mvn clean install site:site
+{code}
+
+

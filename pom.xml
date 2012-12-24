@@ -722,6 +722,7 @@
 						<configuration>
 							<includeReports>true</includeReports>
 							<implementation>fop</implementation>
+							<siteDirectory>${basedir}/src/main/site</siteDirectory>
 						</configuration>
 					</execution>
 				</executions>

@@ -62,6 +62,7 @@ public abstract class ActorServer {
 				Thread.yield();
 			} catch (InterruptedException e) {
 				LOG.error("Main thread interrupted. We should exit.", e);
+				stop();
 			}
 		}
 		LOG.trace("Server loop ended");

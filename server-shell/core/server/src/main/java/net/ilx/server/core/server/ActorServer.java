@@ -10,7 +10,6 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.MutablePropertySources;
-import org.springframework.core.env.PropertiesPropertySource;
 import org.springframework.core.env.PropertySource;
 import org.springframework.core.io.support.ResourcePropertySource;
 

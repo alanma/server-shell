@@ -5,4 +5,12 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>Server Shell Hello Sample</name>
   <description>Sample project showing how to bootstrap server shell framework.</description>
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>net.ilx.server</groupId>
+  		<artifactId>server</artifactId>
+  		<version>0.9.0</version>
+  	</dependency>
+  </dependencies>
 </project>

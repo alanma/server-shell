@@ -8,7 +8,7 @@
 	<fileSets>
 		<fileSet>
 			<directory>${project.build.directory}/jsw/demo/bin</directory>
-			<outputDirectory>demo/bin</outputDirectory>
+			<outputDirectory>hello/bin</outputDirectory>
 			<fileMode>0755</fileMode>
 			<directoryMode>0755</directoryMode>
 			<includes>
@@ -17,11 +17,11 @@
 		</fileSet>
 		<fileSet>
 			<directory>src/main/config</directory>
-			<outputDirectory>demo/etc</outputDirectory>
+			<outputDirectory>hello/etc</outputDirectory>
 		</fileSet>
 		<fileSet>
 			<directory>src/main/scripts</directory>
-			<outputDirectory>demo/bin</outputDirectory>
+			<outputDirectory>hello/bin</outputDirectory>
 			<lineEnding>unix</lineEnding>
 			<fileMode>0754</fileMode>
 			<directoryMode>0755</directoryMode>
@@ -30,13 +30,13 @@
 			<directory>target/jsw</directory>
 			<outputDirectory>/</outputDirectory>
 			<excludes>
-				<exclude>demo/bin/*</exclude>
+				<exclude>hello/bin/*</exclude>
 			</excludes>
 		</fileSet>
 		<fileSet>
 			<!-- http://stackoverflow.com/questions/2605747/maven-how-to-include-empty-directories -->
 			<directory>src/main/assembly</directory>
-			<outputDirectory>demo/logs</outputDirectory>
+			<outputDirectory>hello/logs</outputDirectory>
 			<directoryMode>0755</directoryMode>
 			<excludes>
 				<exclude>*</exclude>

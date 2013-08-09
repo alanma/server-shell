@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import net.ilx.server.core.server.spring.conf.ActorServerConfiguration;
+
 import org.apache.sshd.SshServer;
 import org.jboss.logging.Logger;
 import org.springframework.beans.BeansException;
@@ -22,7 +24,7 @@ public class AApplication implements ApplicationContextAware {
 	private static boolean stopped = false;
 
 	@Autowired
-	@Qualifier("actorsThreadPool")
+	@Qualifier(ActorServerConfiguration.DEFAULT_THREAD_POOL)
 	private ExecutorService executorService;
 
 	@Autowired

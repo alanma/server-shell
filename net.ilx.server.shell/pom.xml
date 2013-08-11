@@ -878,5 +878,6 @@
 
 	<modules>
 		<module>net.ilx.server.shell.core</module>
+		<module>net.ilx.server.shell.modules</module>
 	</modules>
 </project>

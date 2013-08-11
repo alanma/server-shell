@@ -1,5 +1,6 @@
 package net.ilx.server.samples.hello;
 
+import net.ilx.server.samples.hello.config.HelloConfiguration;
 import net.ilx.server.shell.core.server.ActorServer;
 
 import org.springframework.core.env.PropertySource;
@@ -17,6 +18,7 @@ public class HelloServer extends ActorServer {
 	@Override
 	protected Class<?>[] getSpringConfigurations() {
 		return new Class<?>[] {
+				HelloConfiguration.class
 		};
 	}
 

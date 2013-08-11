@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>net.ilx.server.shell.modules</groupId>
+    <artifactId>net.ilx.server.shell.modules</artifactId>
+    <version>0.9.0</version>
+  </parent>
+  <artifactId>net.ilx.server.shell.modules.jolokia</artifactId>
+  <name>Server Shell Module Jolokia</name>
+  
+  <dependencies>
+		<dependency>
+			<groupId>net.ilx.server.shell.core</groupId>
+			<artifactId>net.ilx.server.shell.core.utils</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.jms</groupId>
+			<artifactId>jms-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jolokia</groupId>
+			<artifactId>jolokia-spring</artifactId>
+<!-- 			<classifier>plugin</classifier> -->
+			<version>1.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
+  	
+  
+  </dependencies>
+</project>

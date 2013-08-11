@@ -12,5 +12,10 @@
   		<artifactId>net.ilx.server.shell.core.server</artifactId>
   		<version>0.9.0</version>
   	</dependency>
+  	<dependency>
+  		<groupId>net.ilx.server.shell.modules</groupId>
+  		<artifactId>net.ilx.server.shell.modules.jolokia</artifactId>
+  		<version>0.9.0</version>
+  	</dependency>
   </dependencies>
 </project>

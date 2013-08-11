@@ -10,5 +10,6 @@
   <packaging>pom</packaging>
   <modules>
   	<module>net.ilx.server.shell.modules.jolokia</module>
+  	<module>net.ilx.server.shell.modules.database</module>
   </modules>
 </project>

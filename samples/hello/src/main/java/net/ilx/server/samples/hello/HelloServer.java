@@ -1,6 +1,6 @@
 package net.ilx.server.samples.hello;
 
-import net.ilx.server.core.server.ActorServer;
+import net.ilx.server.shell.core.server.ActorServer;
 
 import org.springframework.core.env.PropertySource;
 

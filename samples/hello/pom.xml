@@ -8,8 +8,8 @@
   
   <dependencies>
   	<dependency>
-  		<groupId>net.ilx.server</groupId>
-  		<artifactId>server</artifactId>
+  		<groupId>net.ilx.server.shell.core</groupId>
+  		<artifactId>net.ilx.server.shell.core.server</artifactId>
   		<version>0.9.0</version>
   	</dependency>
   </dependencies>

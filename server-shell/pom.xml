@@ -2,8 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>net.ilx.server</groupId>
-	<artifactId>server-shell</artifactId>
+	<groupId>net.ilx.server.shell</groupId>
+	<artifactId>net.ilx.server.shell</artifactId>
 	<packaging>pom</packaging>
 	<version>0.9.0</version>
 	<name>Asynchronous Server</name>
@@ -172,14 +172,14 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>net.ilx.server</groupId>
-				<artifactId>core</artifactId>
+				<groupId>net.ilx.server.shell.core</groupId>
+				<artifactId>net.ilx.server.shell.core</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<!-- IN HOUSE DEPS -->
 			<dependency>
-				<groupId>net.ilx.server</groupId>
-				<artifactId>utils</artifactId>
+				<groupId>net.ilx.server.shell.core</groupId>
+				<artifactId>net.ilx.server.shell.core.utils</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 
@@ -877,6 +877,6 @@
 
 
 	<modules>
-		<module>core</module>
+		<module>net.ilx.server.shell.core</module>
 	</modules>
 </project>

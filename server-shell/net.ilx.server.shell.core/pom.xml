@@ -1,0 +1,17 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>net.ilx.server.shell</groupId>
+    <artifactId>net.ilx.server.shell</artifactId>
+    <version>0.9.0</version>
+  </parent>
+  <groupId>net.ilx.server.shell.core</groupId>
+  <artifactId>net.ilx.server.shell.core</artifactId>
+  <packaging>pom</packaging>
+  <name>Server Shell Core</name>
+  <description>Core server components.</description>
+  <modules>
+  	<module>net.ilx.server.shell.core.server</module>
+  	<module>net.ilx.server.shell.core.utils</module>
+  </modules>
+</project>

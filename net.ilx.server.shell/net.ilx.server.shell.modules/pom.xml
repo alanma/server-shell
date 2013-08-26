@@ -11,5 +11,6 @@
   <modules>
   	<module>net.ilx.server.shell.modules.jolokia</module>
   	<module>net.ilx.server.shell.modules.database</module>
+  	<module>net.ilx.server.shell.modules.sshd</module>
   </modules>
 </project>

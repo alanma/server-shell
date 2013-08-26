@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>net.ilx.server.shell.modules</groupId>
+        <artifactId>net.ilx.server.shell.modules</artifactId>
+        <version>0.9.0</version>
+    </parent>
+    <artifactId>net.ilx.server.shell.modules.sshd</artifactId>
+    <name>Spring Shell Module SSHD</name>
+    <description>Adds SSHD support. Spring shell annotations can be used to define SSH shell commands.</description>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>net.ilx.server.shell.core</groupId>
+            <artifactId>net.ilx.server.shell.core.utils</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.ilx.server.shell.core</groupId>
+            <artifactId>net.ilx.server.shell.core.server</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.sshd</groupId>
+            <artifactId>sshd-core</artifactId>
+            <version>${v.sshd-core.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.shell</groupId>
+            <artifactId>spring-shell</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>jline</artifactId>
+                    <groupId>net.sourceforge.jline</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.logging</groupId>
+            <artifactId>jboss-logging</artifactId>
+        </dependency>
+
+
+    </dependencies>
+</project>
